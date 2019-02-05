@@ -1,1 +1,3 @@
-export default [{}]
+import counter from './counter'
+
+export default { counter }

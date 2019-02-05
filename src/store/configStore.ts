@@ -6,6 +6,7 @@ import {
 import thunk from 'redux-thunk'
 import { persistCombineReducers } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
+
 import reducers from './reducers'
 
 const config = {
@@ -13,14 +14,14 @@ const config = {
   storage
 };
 
-// let reducer = persistCombineReducers(config, reducers);
+let reducer = persistCombineReducers(config, reducers);
 
-// const store = createStore(
-//   reducer,
-//   undefined,
-//   compose(
-//     applyMiddleware(...[thunk])
-//   )
-// );
+const store = createStore(
+  reducer,
+  undefined,
+  compose(
+    applyMiddleware(...[thunk])
+  )
+);
 
-// export default store;
+export default store;

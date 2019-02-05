@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 import './Counter.css'
 
 interface IProps {
+  current: number
+  increase: () => any,
+  decrease: () => any
 }
 
 interface IState {
@@ -10,7 +13,7 @@ interface IState {
 }
 
 export default class Counter extends Component<IProps, IState> {
-  state = {
+  readonly state = {
     current: 0
   };
 
@@ -25,16 +28,16 @@ export default class Counter extends Component<IProps, IState> {
   };
 
   render () {
-    const { current }: any  = this.state;
+    const { current, increase, decrease }  = this.props;
     return (
       <section className='counter-wrapper'>
-        <div className='decrease' onClick={this.decrease}>
+        <div className='decrease' onClick={decrease}>
           <i className='fas fa-minus' />
         </div>
         <div className="counter">
           <span>{current}</span>
         </div>
-        <div className='increase' onClick={this.increase}>
+        <div className='increase' onClick={increase}>
           <i className="fas fa-plus" />
         </div>
       </section>
